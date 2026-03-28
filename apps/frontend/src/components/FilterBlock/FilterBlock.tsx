@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { api } from "../../lib/api";
 import styles from "./FilterBlock.module.css";
@@ -177,5 +177,14 @@ export function FilterBlock() {
         <button className={`${styles.btn} ${styles.btnSecondary}`} onClick={reset}>Reset</button>
       </div>
     </div>
+  );
+}
+
+/** Required when FilterBlock is rendered from a Server Component (e.g. browse pages): useSearchParams must be under Suspense for `next build` / prerender. */
+export function FilterBlockWithSuspense() {
+  return (
+    <Suspense fallback={<div className={styles.suspenseFallback} aria-hidden />}>
+      <FilterBlock />
+    </Suspense>
   );
 }

@@ -1,4 +1,4 @@
-import { FilterBlock } from "../../components/FilterBlock/FilterBlock";
+import { FilterBlockWithSuspense } from "../../components/FilterBlock/FilterBlock";
 import { ContentCard } from "../../components/ContentCard/ContentCard";
 import { Pagination } from "../../components/Pagination/Pagination";
 import Link from "next/link";
@@ -11,7 +11,7 @@ export default async function SeriesPage({ searchParams }: { searchParams: Recor
   return (
     <main className={styles.page}>
       <h1>Series</h1>
-      <FilterBlock />
+      <FilterBlockWithSuspense />
       {!data ? (
         <div className={`${styles.stateCard} ${styles.stateError}`}>
           Failed to load content. Please try again.
