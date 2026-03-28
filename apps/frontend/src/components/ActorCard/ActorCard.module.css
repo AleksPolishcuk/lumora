@@ -1,0 +1,26 @@
+.card {
+  border: 1px solid var(--lumora-border);
+  border-radius: 10px;
+  background: rgba(21, 18, 38, 0.72);
+  padding: 6px;
+}
+.photo {
+  width: 100%;
+  height: clamp(120px, 19vw, 180px);
+  object-fit: cover;
+  border-radius: 8px;
+  background: linear-gradient(120deg, var(--lumora-elevated), var(--lumora-surface));
+}
+
+.card > div {
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.card small {
+  color: var(--lumora-text-sec);
+  font-size: 12px;
+  line-height: 1.2;
+}

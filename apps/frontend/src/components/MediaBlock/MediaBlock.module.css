@@ -1,0 +1,151 @@
+.wrap {
+  border: 1px solid var(--lumora-border);
+  background: rgba(20, 18, 36, 0.85);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.playerWrap {
+  width: 100%;
+  max-width: min(52rem, 100%);
+  margin: 0 auto 12px;
+  border: 1px solid var(--lumora-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0f0d1f;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tabBtn {
+  border-radius: 999px;
+  border: 1px solid var(--lumora-border);
+  background: var(--lumora-elevated);
+  color: var(--lumora-text-sec);
+  padding: 8px 12px;
+}
+
+.active {
+  color: #fff;
+  border-color: rgba(157, 97, 245, 0.8);
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.25), rgba(124, 58, 237, 0.5));
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.grid :global(img) {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--lumora-border);
+  transition: transform 0.28s ease, filter 0.28s ease, box-shadow 0.28s ease;
+}
+
+.thumbBtn {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: rgba(12, 10, 22, 0.6);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.thumbBtn :global(img) {
+  display: block;
+}
+
+.thumbBtn:hover :global(img),
+.thumbBtn:focus-visible :global(img) {
+  transform: scale(1.04);
+  filter: saturate(1.06) brightness(1.04);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
+}
+
+.thumbBtn:focus-visible {
+  outline: 2px solid rgba(157, 97, 245, 0.9);
+  outline-offset: 2px;
+}
+
+.thumbBtn:active {
+  transform: scale(0.99);
+}
+
+.videoCard {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.videoCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(9, 8, 18, 0.8), rgba(9, 8, 18, 0.12));
+  transition: opacity 0.28s ease;
+}
+
+.videoCard:hover :global(img),
+.videoCard:focus-visible :global(img) {
+  transform: scale(1.04);
+  filter: saturate(1.08);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.36);
+}
+
+.videoCard:hover::after,
+.videoCard:focus-visible::after {
+  opacity: 0.6;
+}
+
+.videoCard:focus-visible {
+  outline: 2px solid rgba(157, 97, 245, 0.9);
+  outline-offset: 2px;
+}
+
+.playBadge {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  padding: 7px 11px;
+  color: #fff;
+  background: rgba(10, 8, 20, 0.8);
+  backdrop-filter: blur(6px);
+  transform: translateY(4px);
+  transition: transform 0.28s ease, background 0.28s ease;
+}
+
+.videoCard:hover .playBadge,
+.videoCard:focus-visible .playBadge {
+  transform: translateY(0);
+  background: rgba(123, 66, 228, 0.78);
+}
+
+.empty {
+  border: 1px dashed var(--lumora-border);
+  border-radius: 10px;
+  padding: 12px;
+  color: var(--lumora-text-sec);
+}
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

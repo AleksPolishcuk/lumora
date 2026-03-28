@@ -1,0 +1,251 @@
+.page {
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  min-height: 72vh;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.parallaxLayer {
+  position: absolute;
+  inset: -28px 0 0;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(12, 11, 24, 0.98) 0%, rgba(12, 11, 24, 0.72) 40%, rgba(12, 11, 24, 0.3) 100%),
+    linear-gradient(to right, rgba(8, 8, 20, 0.92) 0%, rgba(8, 8, 20, 0.7) 45%, rgba(8, 8, 20, 0.25) 80%, rgba(8, 8, 20, 0.05) 100%);
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  max-width: var(--lumora-container);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding: 86px 16px 28px;
+}
+
+.backBtn {
+  width: fit-content;
+  border: 1px solid var(--lumora-border);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(18, 16, 34, 0.75);
+  color: var(--lumora-text-sec);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 16px;
+  align-items: end;
+}
+
+.poster {
+  width: 100%;
+  height: clamp(220px, 34vw, 360px);
+  border-radius: 14px;
+  border: 1px solid var(--lumora-border);
+  object-fit: cover;
+  aspect-ratio: 2 / 3;
+  background: var(--lumora-elevated);
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.tags span {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--lumora-border);
+  border-radius: 999px;
+  color: #c6b9ff;
+  background: rgba(93, 43, 180, 0.2);
+  padding: 3px 8px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 6.5vw, 74px);
+  line-height: 1.05;
+  margin: 0 0 10px;
+}
+
+.meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: var(--lumora-text-sec);
+  margin-bottom: 12px;
+}
+
+.overview {
+  max-width: 760px;
+  color: var(--lumora-text-sec);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+.playBtn,
+.watchBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 11px 18px;
+  border: 1px solid var(--lumora-border);
+  color: var(--lumora-text);
+  cursor: pointer;
+}
+
+.playBtn {
+  background: linear-gradient(90deg, var(--lumora-purple-light), var(--lumora-purple));
+  border-color: transparent;
+}
+
+.watchBtn {
+  background: rgba(24, 22, 42, 0.76);
+}
+
+.section {
+  width: 100%;
+  max-width: var(--lumora-container);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  padding: 22px 16px;
+}
+
+.section h2 {
+  font-family: var(--font-display);
+  font-size: 30px;
+  margin: 0 0 12px;
+}
+
+.playerSection {
+  padding-top: 12px;
+  animation: playerReveal 420ms ease both;
+}
+
+.playerContain {
+  width: 100%;
+  max-width: min(52rem, 100%);
+  margin-inline: auto;
+}
+
+.playerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.playerClose {
+  border: 1px solid var(--lumora-border);
+  border-radius: 999px;
+  background: rgba(22, 20, 38, 0.86);
+  color: var(--lumora-text-sec);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.playerBody {
+  overflow: hidden;
+  border: 1px solid var(--lumora-border);
+  border-radius: 16px;
+  background: radial-gradient(circle at top, rgba(131, 90, 250, 0.24), rgba(18, 16, 35, 0.94) 48%);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes playerReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.actors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .heroInner {
+    padding: 98px 24px 40px;
+  }
+
+  .hero {
+    min-height: 78vh;
+  }
+
+  .head {
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+  }
+
+  .section {
+    padding: 28px 24px;
+  }
+
+  .actors {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .heroInner {
+    padding: 108px 40px 56px;
+  }
+
+  .section {
+    padding: 32px 40px;
+  }
+
+  .actors {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallaxLayer {
+    transform: none !important;
+  }
+
+  .playerSection {
+    animation: none;
+  }
+}
