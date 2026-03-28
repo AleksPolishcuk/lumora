@@ -18,6 +18,14 @@ Netflix-style streaming MVP with:
 Frontend: `http://localhost:3000`  
 Backend: `http://localhost:5001`
 
+## Production build
+
+1. Set `NODE_ENV=production` for the backend and point `CLIENT_URL` at your deployed frontend origin.
+2. Copy `apps/frontend/.env.example` to `apps/frontend/.env.local` and set `NEXT_PUBLIC_API_URL` to your public API base (for example `https://api.example.com/api`).
+3. Install and build the frontend: `npm install` then `npm run build -w apps/frontend`.
+4. Run the backend (for example behind a process manager): `npm run start -w apps/backend`.
+5. Serve the Next.js app (for example `npm run start -w apps/frontend` after build, or your platform’s static/SSR adapter).
+
 ## Implemented features
 
 - Auth: register/login/logout/refresh/me
