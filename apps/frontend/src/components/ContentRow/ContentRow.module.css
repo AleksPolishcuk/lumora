@@ -1,0 +1,116 @@
+.row {
+  width: 100%;
+}
+
+.rowInner {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.row h2 {
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-family: var(--font-display);
+  animation: rowTitleIn 0.45s ease both;
+}
+.list {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--lumora-purple) var(--lumora-elevated);
+  animation: rowListIn 0.45s ease both;
+}
+
+.list > * {
+  scroll-snap-align: start;
+  flex: 0 0 clamp(145px, 18vw, 190px);
+  max-width: 190px;
+  opacity: 0;
+  transform: translateY(14px) scale(0.985);
+  animation: cardIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.list > *:nth-child(1) { animation-delay: 0.06s; }
+.list > *:nth-child(2) { animation-delay: 0.12s; }
+.list > *:nth-child(3) { animation-delay: 0.18s; }
+.list > *:nth-child(4) { animation-delay: 0.24s; }
+.list > *:nth-child(5) { animation-delay: 0.3s; }
+.list > *:nth-child(6) { animation-delay: 0.36s; }
+.list > *:nth-child(7) { animation-delay: 0.42s; }
+.list > *:nth-child(8) { animation-delay: 0.48s; }
+.list > *:nth-child(9) { animation-delay: 0.54s; }
+.list > *:nth-child(10) { animation-delay: 0.6s; }
+.list > *:nth-child(11) { animation-delay: 0.66s; }
+.list > *:nth-child(12) { animation-delay: 0.72s; }
+
+.list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: var(--lumora-elevated);
+  border-radius: 999px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--lumora-purple-light), var(--lumora-purple));
+  border-radius: 999px;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, var(--lumora-purple), #b78bff);
+}
+
+@media (min-width: 768px) {
+  .rowInner {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .list > * {
+    flex-basis: clamp(155px, 14vw, 205px);
+    max-width: 205px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .rowInner {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .list > * {
+    flex-basis: 210px;
+    max-width: 210px;
+  }
+}
+
+@keyframes rowTitleIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rowListIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes cardIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row h2,
+  .list,
+  .list > * {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

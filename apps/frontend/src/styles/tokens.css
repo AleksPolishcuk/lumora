@@ -1,0 +1,22 @@
+:root {
+  /* Content width — backgrounds stay full-bleed */
+  --lumora-container: 1320px;
+  /* Space below fixed navbar (logo + nav row) — use on page shells */
+  --lumora-page-pad-top: calc(92px + env(safe-area-inset-top, 0px));
+  --lumora-bg: #0d0d1a;
+  --lumora-surface: #13131f;
+  --lumora-elevated: #1a1a2e;
+  --lumora-border: #2a2a3d;
+  --lumora-purple: #7c3aed;
+  --lumora-purple-light: #9d61f5;
+  --lumora-text: #f0eeff;
+  --lumora-text-sec: #a09abf;
+  --lumora-warning: #f59e0b;
+  --font-display: "Playfair Display", serif;
+  --font-body: "DM Sans", sans-serif;
+  --radius-md: 12px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+}

@@ -1,0 +1,64 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+}
+.panel {
+  width: 280px;
+  height: 100%;
+  background: var(--lumora-surface);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel a {
+  color: var(--lumora-text);
+}
+
+.auth {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--lumora-border);
+  display: grid;
+  gap: 10px;
+}
+
+.btn {
+  border: 1px solid var(--lumora-border);
+  border-radius: 999px;
+  color: var(--lumora-text);
+  background: var(--lumora-elevated);
+  padding: 9px 12px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.userMeta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.badge {
+  border: 1px solid var(--lumora-border);
+  color: var(--lumora-text-sec);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--lumora-border);
+  display: grid;
+  place-items: center;
+  background: var(--lumora-elevated);
+  color: var(--lumora-text);
+  font-weight: 700;
+}
