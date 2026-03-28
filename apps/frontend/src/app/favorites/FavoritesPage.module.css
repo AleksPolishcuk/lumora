@@ -1,0 +1,199 @@
+.page {
+  min-height: min(70vh, 900px);
+  padding: 0 16px 48px;
+  padding-top: var(--lumora-page-pad-top);
+  width: 100%;
+  max-width: var(--lumora-container);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0 0 28px;
+  max-width: 520px;
+  font-size: 14px;
+  color: var(--lumora-text-sec);
+  line-height: 1.5;
+}
+
+.grid {
+  margin-top: 8px;
+  display: grid;
+  row-gap: 14px;
+  column-gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Premium empty state (logged in, no items) */
+.empty {
+  margin-top: 12px;
+  border-radius: 18px;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(157, 97, 245, 0.35),
+    rgba(124, 58, 237, 0.12) 45%,
+    rgba(40, 36, 72, 0.4)
+  );
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 24px 56px rgba(0, 0, 0, 0.45);
+}
+
+.emptyInner {
+  border-radius: 17px;
+  padding: clamp(28px, 5vw, 44px) clamp(20px, 4vw, 40px);
+  text-align: center;
+  background: linear-gradient(
+    165deg,
+    rgba(28, 26, 48, 0.96) 0%,
+    rgba(14, 12, 24, 0.98) 100%
+  );
+  backdrop-filter: blur(16px);
+}
+
+.emptyIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(157, 97, 245, 0.35);
+  background: radial-gradient(circle at 30% 20%, rgba(157, 97, 245, 0.35), rgba(18, 16, 32, 0.9));
+  color: #d4b8ff;
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.2);
+}
+
+.emptyIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.emptyHeading {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 3.5vw, 26px);
+  margin: 0 0 10px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.emptyCopy {
+  margin: 0 auto 22px;
+  max-width: 360px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--lumora-text-sec);
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 20px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.cta:active {
+  transform: scale(0.98);
+}
+
+.ctaPrimary {
+  background: linear-gradient(90deg, var(--lumora-purple-light), var(--lumora-purple));
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
+}
+
+.ctaPrimary:hover {
+  box-shadow: 0 10px 28px rgba(124, 58, 237, 0.45);
+}
+
+.ctaGhost {
+  background: rgba(24, 22, 42, 0.85);
+  border-color: var(--lumora-border);
+  color: var(--lumora-text);
+}
+
+.ctaGhost:hover {
+  border-color: rgba(157, 97, 245, 0.45);
+}
+
+/* Error / fetch failure */
+.stateError {
+  margin-top: 16px;
+  border-radius: 14px;
+  padding: 18px 16px;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  background: rgba(42, 24, 28, 0.5);
+  color: #fecaca;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.redirecting {
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--lumora-text-sec);
+  font-size: 14px;
+  padding-top: var(--lumora-page-pad-top);
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: calc(100px + env(safe-area-inset-top, 0px));
+  }
+
+  .redirecting {
+    padding-top: calc(100px + env(safe-area-inset-top, 0px));
+  }
+
+  .grid {
+    row-gap: 18px;
+    column-gap: 18px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1440px) {
+  .page {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: calc(108px + env(safe-area-inset-top, 0px));
+  }
+
+  .redirecting {
+    padding-top: calc(108px + env(safe-area-inset-top, 0px));
+  }
+
+  .grid {
+    row-gap: 22px;
+    column-gap: 20px;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
