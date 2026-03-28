@@ -1,0 +1,41 @@
+.card {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid var(--lumora-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--lumora-surface);
+}
+
+.poster {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  max-height: 210px;
+  min-height: 120px;
+  background: linear-gradient(90deg, var(--lumora-elevated), #2a2346, var(--lumora-elevated));
+  background-size: 300% 100%;
+  animation: shimmer 1.3s linear infinite;
+}
+
+.meta {
+  padding: 8px 10px 10px;
+  display: grid;
+  gap: 6px;
+}
+
+.line {
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--lumora-elevated), #2a2346, var(--lumora-elevated));
+  background-size: 300% 100%;
+  animation: shimmer 1.3s linear infinite;
+}
+
+.lineShort {
+  width: 62%;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 0; }
+  100% { background-position: 100% 0; }
+}

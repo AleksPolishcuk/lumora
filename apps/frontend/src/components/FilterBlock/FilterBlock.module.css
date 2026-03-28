@@ -1,0 +1,61 @@
+.wrap {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  background: var(--lumora-surface);
+  border: 1px solid var(--lumora-border);
+  border-radius: 14px;
+}
+
+.header h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.grid input,
+.grid select {
+  min-height: 40px;
+  background: var(--lumora-elevated);
+  color: var(--lumora-text);
+  border: 1px solid var(--lumora-border);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid var(--lumora-border);
+  border-radius: 999px;
+  color: var(--lumora-text);
+  background: var(--lumora-purple);
+  padding: 8px 14px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btnSecondary {
+  background: var(--lumora-elevated);
+}
+@media (min-width: 768px) {
+  .wrap {
+    padding: 16px;
+  }
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
