@@ -1,0 +1,37 @@
+# Render Blueprint — create/update services from repo; set secrets (sync: false) in the dashboard.
+# Docs: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: lumora-backend
+    runtime: node
+    rootDir: .
+    buildCommand: npm install
+    startCommand: npm run start -w apps/backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_REFRESH_SECRET
+        sync: false
+      - key: TMDB_API_KEY
+        sync: false
+
+  - type: web
+    name: lumora-frontend
+    runtime: node
+    rootDir: .
+    buildCommand: npm install && npm run build -w apps/frontend
+    startCommand: npm run start -w apps/frontend
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        sync: false

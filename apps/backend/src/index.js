@@ -14,6 +14,9 @@ const { errorHandler } = require("./middleware/errorHandler");
 
 const app = express();
 
+// Render / reverse proxies: correct req.ip, cookies, rate limiting (see https://expressjs.com/en/guide/behind-proxies.html)
+app.set("trust proxy", 1);
+
 app.use(helmet());
 app.use(cors({ origin: env.clientUrl, credentials: true }));
 app.use(express.json());
