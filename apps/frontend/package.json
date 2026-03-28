@@ -2,6 +2,10 @@
   "name": "lumora-frontend",
   "version": "1.0.0",
   "private": true,
+  "overrides": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
