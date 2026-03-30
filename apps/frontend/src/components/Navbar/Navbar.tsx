@@ -47,6 +47,7 @@ export function Navbar() {
   }, []);
 
   const avatarLetter = useMemo(() => (userName?.trim()?.[0] || "U").toUpperCase(), [userName]);
+  const planLabel = plan === "premium" ? "Premium" : "Free";
 
   const onLogout = async () => {
     const token = getAccessToken();
@@ -118,8 +119,18 @@ export function Navbar() {
               </>
             ) : (
               <>
-                <span className={styles.badge}>Plan: {plan}</span>
-                <span className={styles.avatar}>{avatarLetter}</span>
+                <div className={styles.account}>
+                  <span
+                    className={`${styles.badge} ${plan === "premium" ? styles.badgePremium : styles.badgeFree}`}
+                    title={`Subscription: ${planLabel}`}
+                  >
+                    <span className={styles.badgeLabel}>Plan</span>
+                    <span className={styles.badgeValue}>{planLabel}</span>
+                  </span>
+                  <span className={styles.avatar} title={userName || "Account"} aria-label="Account">
+                    {avatarLetter}
+                  </span>
+                </div>
                 <button className={styles.btn} onClick={onLogout}>Logout</button>
               </>
             )}

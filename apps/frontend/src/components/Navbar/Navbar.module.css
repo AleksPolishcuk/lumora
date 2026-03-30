@@ -176,8 +176,14 @@
 .actions {
   display: none;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   justify-self: end;
+}
+
+.account {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .btn {
@@ -203,25 +209,91 @@
 }
 
 .badge {
-  border: 1px solid var(--lumora-border);
-  color: var(--lumora-text-sec);
-  background: var(--lumora-surface);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   border-radius: 999px;
-  padding: 7px 10px;
+  padding: 6px 12px 6px 10px;
   font-size: 12px;
-  text-transform: capitalize;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--lumora-text-sec);
+  border: 1px solid rgba(157, 97, 245, 0.35);
+  background: linear-gradient(145deg, rgba(26, 24, 46, 0.95), rgba(14, 12, 28, 0.92));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+.badgeLabel {
+  font-size: 10px;
+  font-weight: 600;
+  opacity: 0.75;
+  letter-spacing: 0.08em;
+}
+
+.badgeValue {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--lumora-text);
+}
+
+.badgeFree {
+  border-color: rgba(160, 154, 191, 0.35);
+  background: linear-gradient(145deg, rgba(22, 22, 38, 0.95), rgba(12, 11, 22, 0.92));
+}
+
+.badgeFree .badgeValue {
+  color: var(--lumora-text-sec);
+}
+
+.badgePremium {
+  border-color: rgba(157, 97, 245, 0.65);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.38), rgba(124, 58, 237, 0.1));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(124, 58, 237, 0.15),
+    0 10px 28px rgba(0, 0, 0, 0.4),
+    0 0 28px rgba(124, 58, 237, 0.22);
+}
+
+.badgePremium .badgeValue {
+  color: #f5f0ff;
+  text-shadow: 0 0 18px rgba(157, 97, 245, 0.45);
 }
 
 .avatar {
-  width: 34px;
-  height: 34px;
+  position: relative;
+  width: 38px;
+  height: 38px;
   border-radius: 999px;
-  border: 1px solid var(--lumora-border);
   display: grid;
   place-items: center;
-  background: var(--lumora-elevated);
-  color: var(--lumora-text);
+  flex-shrink: 0;
+  font-size: 14px;
   font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background: linear-gradient(155deg, rgba(52, 38, 92, 0.95), rgba(18, 14, 34, 0.98));
+  border: 1px solid rgba(157, 97, 245, 0.45);
+  box-shadow:
+    0 0 0 2px rgba(124, 58, 237, 0.2),
+    0 10px 26px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.avatar::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(157, 97, 245, 0.75), rgba(124, 58, 237, 0.25), rgba(157, 97, 245, 0.35));
+  z-index: -1;
+  opacity: 0.85;
+  filter: blur(0.5px);
 }
 
 @media (min-width: 768px) {

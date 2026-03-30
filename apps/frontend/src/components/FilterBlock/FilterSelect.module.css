@@ -1,0 +1,171 @@
+.root {
+  position: relative;
+  width: 100%;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--lumora-border);
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.9) 0%, var(--lumora-elevated) 100%);
+  color: var(--lumora-text);
+  font-size: 0.9rem;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.trigger:hover {
+  border-color: rgba(124, 58, 237, 0.35);
+}
+
+.trigger:focus {
+  outline: none;
+}
+
+.trigger:focus-visible {
+  border-color: rgba(124, 58, 237, 0.55);
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.2);
+}
+
+.triggerOpen {
+  border-color: rgba(124, 58, 237, 0.55);
+  box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.2);
+}
+
+.triggerText {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.triggerChevron {
+  flex-shrink: 0;
+  color: var(--lumora-text-sec);
+  transition: transform 0.25s ease, color 0.2s ease;
+}
+
+.triggerChevronOpen {
+  transform: rotate(180deg);
+  color: var(--lumora-purple-light);
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1040;
+  background: transparent;
+}
+
+.menu {
+  position: fixed;
+  z-index: 1050;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  border-radius: 10px;
+  border: 1px solid rgba(124, 58, 237, 0.22);
+  background: linear-gradient(165deg, #1a1a2e 0%, #13131f 100%);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.menuBelow {
+  animation: menuInBelow 0.2s ease;
+}
+
+.menuAbove {
+  animation: menuInAbove 0.2s ease;
+}
+
+@keyframes menuInBelow {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menuInAbove {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 12px;
+  margin: 0;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  background: transparent;
+  color: var(--lumora-text);
+  font-size: 0.9rem;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.option:hover,
+.option:focus {
+  outline: none;
+  background: rgba(124, 58, 237, 0.14);
+  color: #fff;
+}
+
+.option:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(124, 58, 237, 0.45);
+}
+
+.optionSelected {
+  background: rgba(124, 58, 237, 0.2);
+  color: var(--lumora-purple-light);
+  font-weight: 600;
+}
+
+.optionHighlight:not(.optionSelected) {
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.optionCheck {
+  flex-shrink: 0;
+  width: 1.1em;
+  margin-right: 8px;
+  opacity: 0.9;
+  font-size: 0.75rem;
+}
+
+.optionLabel {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
