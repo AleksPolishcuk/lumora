@@ -1,21 +1,84 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
   z-index: 40;
+  background: rgba(8, 8, 20, 0.72);
+  backdrop-filter: blur(10px) saturate(1.15);
+  -webkit-backdrop-filter: blur(10px) saturate(1.15);
+  animation: overlayIn 0.28s ease forwards;
+}
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .panel {
-  width: 280px;
+  width: min(320px, 92vw);
   height: 100%;
-  background: var(--lumora-surface);
+  margin-left: auto;
+  background: linear-gradient(160deg, rgba(25, 22, 44, 0.98), rgba(12, 11, 24, 0.98));
+  border-left: 1px solid rgba(157, 97, 245, 0.25);
   padding: 24px 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-shadow: -24px 0 60px rgba(0, 0, 0, 0.55);
+  border-radius: 16px 0 0 16px;
+  position: relative;
+  overflow: hidden;
+  animation: panelIn 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform: translateX(12px);
+  opacity: 0;
+}
+
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 10%, rgba(124, 58, 237, 0.22), transparent 55%);
+  pointer-events: none;
+}
+
+.panel {
+  isolation: isolate;
+}
+
+@keyframes panelIn {
+  from {
+    transform: translateX(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .panel a {
   color: var(--lumora-text);
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 12px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+  text-decoration: none;
+}
+
+.panel a:hover {
+  transform: translateY(-1px);
+  border-color: rgba(157, 97, 245, 0.45);
+  background: rgba(124, 58, 237, 0.12);
+}
+
+.panel a:focus-visible {
+  outline: none;
+  border-color: rgba(157, 97, 245, 0.8);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.45);
 }
 
 .auth {
@@ -27,13 +90,36 @@
 }
 
 .btn {
-  border: 1px solid var(--lumora-border);
+  border: 1px solid rgba(157, 97, 245, 0.3);
   border-radius: 999px;
   color: var(--lumora-text);
-  background: var(--lumora-elevated);
+  background: rgba(19, 19, 31, 0.75);
   padding: 9px 12px;
   font-size: 14px;
   text-align: center;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease,
+    color 0.22s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(157, 97, 245, 0.85);
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.24), rgba(124, 58, 237, 0.52));
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45), 0 0 24px rgba(124, 58, 237, 0.22);
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.45), 0 14px 36px rgba(0, 0, 0, 0.45);
+  border-color: rgba(157, 97, 245, 0.95);
 }
 
 .userMeta {
@@ -49,6 +135,7 @@
   padding: 6px 10px;
   font-size: 12px;
   text-transform: capitalize;
+  background: rgba(19, 19, 31, 0.55);
 }
 
 .avatar {

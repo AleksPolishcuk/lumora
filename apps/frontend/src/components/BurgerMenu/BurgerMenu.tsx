@@ -15,6 +15,7 @@ interface Props {
 export function BurgerMenu({ open, onClose, isLoggedIn, userName, plan, onLogout }: Props) {
   if (!open) return null;
   const avatarLetter = (userName?.trim()?.[0] || "U").toUpperCase();
+  const planLabel = plan === "premium" ? "Premium" : "Free";
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.panel} onClick={(e) => e.stopPropagation()}>
@@ -26,13 +27,13 @@ export function BurgerMenu({ open, onClose, isLoggedIn, userName, plan, onLogout
         <div className={styles.auth}>
           {!isLoggedIn ? (
             <>
-              <Link className={styles.btn} href="/auth/register" onClick={onClose}>Реєстрація</Link>
-              <Link className={styles.btn} href="/auth/signin" onClick={onClose}>Логін</Link>
+              <Link className={styles.btn} href="/auth/register" onClick={onClose}>Register</Link>
+              <Link className={styles.btn} href="/auth/signin" onClick={onClose}>Sign In</Link>
             </>
           ) : (
             <>
               <div className={styles.userMeta}>
-                <span className={styles.badge}>Plan: {plan}</span>
+                <span className={styles.badge}>Plan: {planLabel}</span>
                 <span className={styles.avatar}>{avatarLetter}</span>
               </div>
               <button
