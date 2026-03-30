@@ -114,7 +114,14 @@ export default function FavoritesPage() {
           </div>
         </div>
       ) : (
-        <section className={styles.grid}>{items.map((item) => <ContentCard key={item.id} item={item} />)}</section>
+        <section className={styles.grid}>
+          {items.map((item) => (
+            <ContentCard
+              key={`${item.media_type || (item.first_air_date ? "tv" : "movie")}-${item.id}`}
+              item={item}
+            />
+          ))}
+        </section>
       )}
     </main>
   );

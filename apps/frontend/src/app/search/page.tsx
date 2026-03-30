@@ -7,8 +7,9 @@ import styles from "../BrowsePage.module.css";
 export default async function SearchPage({ searchParams }: { searchParams: Record<string, string> }) {
   const q = searchParams.q || "";
   const page = searchParams.page || "1";
+  const perPage = searchParams.perPage || "20";
   const data = await api<{ items: any[]; page: number; totalPages: number }>(
-    `/content/search?q=${encodeURIComponent(q)}&page=${encodeURIComponent(page)}`
+    `/content/search?q=${encodeURIComponent(q)}&page=${encodeURIComponent(page)}&perPage=${encodeURIComponent(perPage)}`
   ).catch(() => null);
 
   return (
@@ -23,7 +24,14 @@ export default async function SearchPage({ searchParams }: { searchParams: Recor
       ) : data.items.length === 0 ? (
         <div className={styles.stateCard}>No results for your query.</div>
       ) : (
-        <section className={styles.grid}>{data.items.map((item) => <ContentCard key={item.id} item={item} />)}</section>
+        <section className={styles.grid}>
+          {data.items.map((item) => (
+            <ContentCard
+              key={`${item.media_type || (item.first_air_date ? "tv" : "movie")}-${item.id}`}
+              item={item}
+            />
+          ))}
+        </section>
       )}
       <Pagination page={data?.page || 1} totalPages={data?.totalPages || 1} pathname="/search" params={{ q }} />
     </main>

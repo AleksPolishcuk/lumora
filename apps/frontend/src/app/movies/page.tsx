@@ -21,7 +21,14 @@ export default async function MoviesPage({ searchParams }: { searchParams: Recor
       ) : data.items.length === 0 ? (
         <div className={styles.stateCard}>No titles found for current filters.</div>
       ) : (
-        <section className={styles.grid}>{data.items.map((item) => <ContentCard key={item.id} item={item} />)}</section>
+        <section className={styles.grid}>
+          {data.items.map((item) => (
+            <ContentCard
+              key={`${item.media_type || (item.first_air_date ? "tv" : "movie")}-${item.id}`}
+              item={item}
+            />
+          ))}
+        </section>
       )}
       <Pagination page={data?.page || 1} totalPages={data?.totalPages || 1} pathname="/movies" params={searchParams} />
     </main>
