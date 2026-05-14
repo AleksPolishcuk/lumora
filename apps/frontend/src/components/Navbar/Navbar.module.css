@@ -296,6 +296,7 @@
   filter: blur(0.5px);
 }
 
+/* Tablet at 768px: keep burger + slide-out menu; desktop row nav from 769px up */
 @media (min-width: 768px) {
   .nav {
     top: 0;
@@ -303,6 +304,9 @@
   .inner {
     padding: 18px 24px;
   }
+}
+
+@media (min-width: 769px) {
   .links,
   .actions {
     display: flex;
@@ -318,7 +322,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .brandText {
     font-size: 28px;
   }
